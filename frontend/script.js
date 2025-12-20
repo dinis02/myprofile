@@ -73,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       center.x = w/2;
       center.y = h/2;
 
+      // make the whole figure gently follow the pointer
+      const follow = Math.min(w, h) * 0.12; // max drift ~6% of min dimension
+      center.x += pointer.x * follow;
+      center.y += pointer.y * follow;
+
       // clean background (no grid)
 
       // animate nodes
@@ -81,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pointer.y += (pointer.ty - pointer.y) * 0.08;
 
       const baseR = Math.min(w,h)*0.33; // slightly larger figure
-      const ox = 0, oy = 0; // fixed position (no pointer drift)
+      const ox = 0, oy = 0; // per-point offset not used; center follows pointer
 
       // handle shape mode switching and morphing
       const now = performance.now();

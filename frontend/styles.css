@@ -156,7 +156,7 @@ body.font-mono {
   appearance: none;
   background: transparent;
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 0;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 600;
@@ -235,18 +235,18 @@ body.theme-dark .code-block { background: #ffffff; color: #111111; }
 #codeFace { transform-origin: center center; transform-style: preserve-3d; }
 .card {
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 0;
   border-radius: 14px;
   padding: 18px 16px;
   margin: 14px 0;
 }
-.card:hover { border-color: color-mix(in oklab, var(--text) 25%, var(--border)); }
+.card:hover { }
 
 /* Minimal home card */
 .minimal-card { text-align: center; }
 .minimal-card .links { justify-content: center; }
 .card h2 { margin: 0 0 12px; font-size: 1.2rem; letter-spacing: 0.2px; }
-.item { padding: 10px 0; border-top: 1px solid var(--border); }
+.item { padding: 10px 0; border-top: 0; }
 .item:first-child { border-top: 0; }
 .item-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .item h3 { margin: 0 0 6px; font-size: 1.05rem; }
@@ -258,15 +258,28 @@ body.theme-dark .code-block { background: #ffffff; color: #111111; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
+
+/* Contact page tweaks */
+body.contact main.container { padding-top: 80px; }
+body.contact .card { border: 0; }
+body.contact .form-group input,
+body.contact .form-group textarea {
+  border: 1px solid var(--border);
+  transition: border-color .15s ease, background .15s ease;
+}
+body.contact .form-group input:focus,
+body.contact .form-group textarea:focus {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+}
 .skills-grid h3 { margin: 0 0 6px; font-size: 1rem; color: var(--muted); }
 .skills-grid ul { margin: 0; padding-left: 18px; }
 
-.site-footer { border-top: 1px solid var(--border); padding: 20px 0; color: var(--muted); }
+.site-footer { border-top: 0; padding: 20px 0; color: var(--muted); }
 
 /* Projects */
 .projects-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.project { border: 1px solid var(--border); border-radius: 12px; padding: 12px; transition: border-color .2s ease, background .2s ease; }
-.project:hover { border-color: color-mix(in oklab, var(--accent) 50%, var(--border)); background: color-mix(in oklab, var(--card) 85%, transparent); }
+.project { border: 0; border-radius: 12px; padding: 12px; transition: background .2s ease; }
+.project:hover { background: color-mix(in oklab, var(--card) 85%, transparent); }
 
 /* Left side vertical navigation */
 .side-nav {
@@ -283,8 +296,8 @@ body.theme-dark .code-block { background: #ffffff; color: #111111; }
   text-decoration: none;
   padding: 3.4px 5.1px; /* 15% smaller */
   border-radius: 5.1px; /* 15% smaller */
-  border: 1px solid transparent;
-  transition: color .15s ease, background .15s ease, border-color .15s ease;
+  border: 0;
+  transition: color .15s ease, background .15s ease;
   font-size: 0.714rem; /* 15% smaller */
 }
 .side-nav a { display: flex; align-items: center; justify-content: center; width: var(--rail-box); height: var(--rail-box); }
@@ -301,7 +314,6 @@ body.theme-dark .code-block { background: #ffffff; color: #111111; }
 .side-nav a:hover,
 .side-nav a.active {
   color: var(--text);
-  border-color: var(--border);
   background: color-mix(in oklab, var(--card) 85%, transparent);
 }
 
@@ -314,18 +326,17 @@ body.theme-dark .code-block { background: #ffffff; color: #111111; }
 .form-group textarea {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid var(--border);
+  border: 0;
   background: var(--card);
   color: var(--text);
   border-radius: 8px;
   outline: none;
-  transition: border-color .15s ease, background .15s ease;
+  transition: background .15s ease;
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: color-mix(in oklab, var(--muted) 70%, transparent); }
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
   background: color-mix(in oklab, var(--card) 92%, transparent);
 }
 .form-group textarea { min-height: 110px; resize: vertical; }
